@@ -6,7 +6,7 @@ void keyPressed() {
   else if (keyCode == ALT) altPressed = true;
   
   //neutral key shortcuts
-  else if (key == 'a') nodes.add(new Node(mouseX, mouseY));
+  else if (key == 'a') toAdd = new Node(mouseX, mouseY);
   else if (key == 'b') {
     if(selectMode == SelectMode.box) selectMode = SelectMode.click;
     else selectMode = SelectMode.box;

@@ -1,6 +1,11 @@
 void mousePressed() {
   if(grab) return; //process grab release in mouseReleased
   error = "";
+  if(toAdd != null){
+    nodes.add(toAdd);
+    toAdd = null;
+    return;
+  }
   if (mouseButton == LEFT  && selectMode == SelectMode.click) {
     boolean nodeClicked = false;
     for (Node n : nodes) {

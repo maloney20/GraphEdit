@@ -4,27 +4,11 @@ final int NODE_W = 30;
 char newLabel = 'A';
 ArrayList visited = new ArrayList<Node>(); //for dfs
 float boxX = -1, boxY = -1;
-
-
-String[] neutralHints = {
-  "A: add node", 
-  "L: select all", 
-  "Click: select", 
-  "Alt+Click: select connected"
-};
-String[] selectedHints = {
-  "E: add edge(s)", 
-  "G: move selected", 
-  "X: delete selected", 
-  "C: clear selection", 
-  "Q: selected to clique"
-};
-
-
 String neutralHint, selectedHint, bottom;
 String error = "";
 ArrayList<Node> nodes = new ArrayList<Node>();
 ArrayList<Node> selected = new ArrayList<Node>();
+Node toAdd = null;
 boolean grab = false;
 
 void setup() {
@@ -49,6 +33,14 @@ void draw() {
     //print(n.label);
     n.show(color(0, 200, 0));
   }
+  
+  if(toAdd != null) {
+    toAdd.x = mouseX;
+    toAdd.y = mouseY;
+    toAdd.show(color(255, 0, 0, 100));
+  }
+    
+  
   if (!selected.isEmpty()) selected.get(0).show(color(0, 255, 0));
   // println();
   if (grab) {
@@ -83,9 +75,9 @@ void draw() {
   text(bottom, 20, height - 20*numLines);
   
   textAlign(RIGHT);
+  
   fill(255, 0, 0);
   text(error, width-20, height-20);
-  
   
 }
 
