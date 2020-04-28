@@ -19,11 +19,6 @@ String[] selectedHints = {
   "C: clear selection", 
   "Q: selected to clique"
 };
-String[] rClickOptions = {
-  "Rename",
-  "Recolor",
-  "clear connections"
-};
 
 
 String neutralHint, selectedHint, bottom;
