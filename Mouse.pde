@@ -40,6 +40,15 @@ void mouseReleased(){
   boxY = -1;
 }
 
+void mouseDragged(){
+  if(selected.size() > 0 && selectMode != SelectMode.box){
+    for(Node n : selected){
+      n.x += mouseX - pmouseX;
+      n.y += mouseY - pmouseY;
+    }
+  }
+}
+
 boolean rectContains(Node n, float x0, float y0, float x1, float y1){
   return n.x > min(x0, x1) 
     && n.x < max(x0, x1) 
