@@ -1,0 +1,3 @@
+enum SelectMode {
+  click, box;
+}
