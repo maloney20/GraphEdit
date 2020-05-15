@@ -4,32 +4,30 @@ void keyPressed() {
   error = "";
   if (keyCode == SHIFT) shiftPressed = true;
   else if (keyCode == ALT) altPressed = true;
-  
+
   //neutral key shortcuts
   else if (key == 'a') toAdd = new Node(mouseX, mouseY);
   else if (key == 'b') {
-    if(selectMode == SelectMode.box) selectMode = SelectMode.click;
+    if (selectMode == SelectMode.box) selectMode = SelectMode.click;
     else selectMode = SelectMode.box;
-  }
-  else if (key == 'l') {
+  } else if (key == 'l') {
     selected.clear();
     selected.addAll(nodes);
-    bottom = selectedHint; 
+    bottom = selectedHint;
   }
-  
+
   //selected key shortcuts
   else if (key == 'c') selected.clear();
-  else if (key == 'q'){
+  else if (key == 'q') {
     if (selected.size() < 2) error = "Error: Not enough vertices selected to make clique";
-    for(Node n : selected){
-      for(Node m : selected){
-        if(m.label == n.label) continue;
-        if(!m.connected.contains(n)) m.connected.add(n);
-        if(!n.connected.contains(m)) n.connected.add(m);
+    for (Node n : selected) {
+      for (Node m : selected) {
+        if (m.label == n.label) continue;
+        if (!m.connected.contains(n)) m.connected.add(n);
+        if (!n.connected.contains(m)) n.connected.add(m);
       }
     }
-  }
-  else if (key == 'g') grab = true;
+  } else if (key == 'g') grab = true;
   else if (key == 'x') {
     nodes.removeAll(selected);
     for (Node n : nodes) n.connected.removeAll(selected);
@@ -43,6 +41,19 @@ void keyPressed() {
         selected.get(i).connected.add(selected.get(0));
       }
     }
+  } else if (key == 'X') {
+    if(selected.size() < 2) error = "Error: Not enough vertices selected to delete edges";
+    Node principal = selected.get(0);
+    boolean edgeRemoved = false;
+    for (int i = 1; i < selected.size(); i++) {
+      Node s = selected.get(i);
+      if (principal.connected.contains(s)) {
+        edgeRemoved = true;
+        principal.connected.remove(s);
+        s.connected.remove(principal);
+      }
+    }
+    if(!edgeRemoved) error = "Error: No edges to delete";
   }
   bottom = selected.size() > 0 ? selectedHint : neutralHint;
 }

@@ -21,10 +21,23 @@ class Node {
     stroke(0);
     strokeWeight(1.5);
     for (Node n : connected) {
-      if (n == null) println("this would cause an exception");
-      line(this.x, this.y, n.x, n.y);
+      if (n == null) {
+        return; 
+      }
+      arrow(this.x, this.y, n.x, n.y);
     }
   }
+  
+  void arrow(float x1, float y1, float x2, float y2) {
+  line(x1, y1, x2, y2);
+  pushMatrix();
+  translate(x2, y2);
+  float a = atan2(x1-x2, y2-y1);
+  rotate(a);
+  line(0, 0, -10, -10);
+  line(0, 0, 10, -10);
+  popMatrix();
+} 
 
   void show(color c) {
     fill(c);

@@ -10,10 +10,11 @@ ArrayList<Node> nodes = new ArrayList<Node>();
 ArrayList<Node> selected = new ArrayList<Node>();
 Node toAdd = null;
 boolean grab = false;
+RClickMenu rClickMenu = null;
 
 void setup() {
   size(800, 600);
-  pixelDensity(2);
+ // pixelDensity(2);
   neutralHint = getLines(neutralHints);
   selectedHint = getLines(selectedHints);
   bottom = neutralHint;
@@ -31,7 +32,7 @@ void draw() {
   }
   for (Node n : selected) {
     //print(n.label);
-    n.show(color(0, 200, 0));
+    n.show(color(0, 170, 0));
   }
   
   if(toAdd != null) {
@@ -61,6 +62,10 @@ void draw() {
     }
   } else {
     cursor(ARROW); 
+  }
+  
+  if(rClickMenu != null){
+    rClickMenu.show(); 
   }
 
   
