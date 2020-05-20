@@ -13,7 +13,7 @@ in a terminal.
 
 
 ## Adding and Selecting
-- To add a vertex, simply press 'A' and a new vertex will be added at your cursor.
+- To add a vertex, press 'A' and a new vertex will be added at your cursor.
 - To select vertices:
     - Click on a vertex
     - Shift+click to add a vertex to your current selection
