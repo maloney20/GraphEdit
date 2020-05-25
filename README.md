@@ -13,7 +13,7 @@ in a terminal.
 
 
 ## Adding and Selecting
-- To add a vertex, simply press 'A' and a new vertex will be added at your cursor.
+- To add a vertex, press 'A' and a new vertex will be added at your cursor.
 - To select vertices:
     - Click on a vertex
     - Shift+click to add a vertex to your current selection
@@ -27,6 +27,6 @@ in a terminal.
 - Drag a singular selected vertices to reposition it OR
 - Press 'G' to move a selection of vertices
 ### Adding Edges
-- The first vertex added to your selection becomes the 'principal vertex'
+- The first vertex added to your selection becomes the 'principal vertex'. If more than one vertex is added at a time, the node with the alphanumerically smallest label will be the principal node. 
 - With 2 or more vertices selected, press 'E' to add an edge between the principal vertex and all other selected vertices
 - Additionally, you can create a [*k-clique*](https://en.wikipedia.org/wiki/Clique_(graph_theory)) by selecting *k* vertices and pressing 'Q'
